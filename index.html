@@ -20,7 +20,7 @@
   rel="stylesheet"
 />
 <link rel="stylesheet" href="styles.css" />
-<link rel="script" href="scripts.js"/>
+<script type="text/javascript" src="scripts.js"></script>
 </head>
 <body>
   <!-- START NAV -->
@@ -228,15 +228,26 @@ href="https://codepen.io/ikedroid/full/OJgWvwP"
       ><i class="fas fa-mobile-alt"></i> Call me</a
     >
   </div>
-  <div class="contact-form">
+  <form class="contact-form" method="post" autocomplete="on" name="google-sheet">
         <div class="name">
-            <input type="text" class="first-name" required placeholder="first name">
-            <input type="text" class="last-name" required placeholder="last name">
+            <input type="text" class="first-name" name ="first-name" required placeholder="first name">
+            <input type="text" class="last-name" name ="last-name" required placeholder="last name">
         </div>
-        <input type="email" required class="email" placeholder="email">
-        <textarea class="message" placeholder="message" required></textarea>
-        <button class="btn contact-btn">contact</button>
-    </div>
+        <input type="email" required class="email" name="email" placeholder="email">
+        <textarea class="message" placeholder="message" name="message" required></textarea>
+        <button class="btn contact-btn" type="submit" >contact</button>
+    </form>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxneX-LyJ595uepjGGfdcYU3h6mhHZfT4_gMHDqkEJtCCIe6CI/exec'
+        const form = document.forms['google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => alert("Thanks for Contacting me..! I Will Revert To You Soon..."))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
 </section>
 <footer>
  <p>
