@@ -231,9 +231,10 @@ href="https://codepen.io/ikedroid/full/OJgWvwP"
   <form class="contact-form" method="post" autocomplete="on" name="google-sheet">
         <div class="name">
             <input type="text" class="first-name" name ="first-name" required placeholder="first name">
-            <input type="text" class="last-name" name ="last-name" required placeholder="last name">
+            <input type="text" class="last-name" name ="last-name" placeholder="last name">
         </div>
         <input type="email" required class="email" name="email" placeholder="email">
+        <input type="tel" class="phone-no" name="phone-no" placeholder="phone number">
         <textarea class="message" placeholder="message" name="message" required></textarea>
         <button class="btn contact-btn" type="submit" >contact</button>
     </form>
@@ -244,7 +245,7 @@ href="https://codepen.io/ikedroid/full/OJgWvwP"
         form.addEventListener('submit', e => {
           e.preventDefault()
           fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => alert("Thanks for Contacting me..! I Will Revert To You Soon..."))
+            .then(response => alert("Thanks for Contacting me! I will get back to you soon..."))
             .catch(error => console.error('Error!', error.message))
         })
       </script>
