@@ -90,6 +90,7 @@
     height: 30px;
     width: 30px;
     border-radius: 60%;
+    z-index: 11;
   }
   
   h1,
